@@ -45,12 +45,12 @@ function renderAvatar(user) {
         // 2.开始渲染头像
     if (user.user_pic !== null) {
         // 有头像
-        $('.layui-nav-img').show().attr('src', user.user_pic)
+        $('.layui-nav-img').attr('src', user.user_pic).show()
         $('.text-avatar').hide()
     } else {
         // 没有头像
-        var text = name[0].toUpperCase()
-        $('.text-avatar').show().html(text)
         $('.layui-nav-img').hide()
+        var text = name[0].toUpperCase()
+        $('.text-avatar').html(text).show()
     }
 }
