@@ -8,16 +8,17 @@ $(function() {
             }
         }
     });
-    // 2.用户渲染
-    var layer = layui.layer
     initUserInfo()
-        // 封装请求函数
+        // 2.用户渲染
+    var layer = layui.layer
+
+    // 封装请求函数
     function initUserInfo() {
         $.ajax({
             method: "GET",
             url: "/my/userinfo",
             success: function(res) {
-                if (res.stauts !== 0) {
+                if (res.status !== 0) {
                     return layer.msg(res.message)
                 }
                 // 成功后渲染
@@ -50,6 +51,7 @@ $(function() {
                 // 调用父页面中的更新用户信息和头像发法
                 // window.parent就是--ifmeam区域
                 window.parent.getuserInof();
+
             }
         })
     })
